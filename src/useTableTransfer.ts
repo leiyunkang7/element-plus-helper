@@ -1,17 +1,59 @@
 import { ref, watch, nextTick, Ref } from 'vue'
 
+/**
+ *  入参
+ */
 export interface UseTableTransferParams<T> {
+  /**
+   * 行数据的 Key,值唯一
+   */
   rowKey: keyof T
+
+  /**
+   * 左侧table的ref引用
+   */
   tableRefLeft: Ref<any>
+
+  /**
+   * 左侧table绑定的data
+   */
   tableDataLeft: Ref<T[]>
+
+  /**
+   * 右侧table绑定的data
+   */
   tableDataRight: Ref<T[]>
 }
 
+/**
+ * 出参
+ * 一系列加工之后的el-talbe事件
+ * 具体清看 https://element-plus.org/#/zh-CN/component/table#table-events
+ */
 export interface UseTableTransferReturns<T> {
+  /**
+   * @selection-change 当选择项发生变化时会触发该事件
+   */
   handleSelectionChange: (val: T[]) => void
+
+  /**
+   * 	@select 当用户手动勾选数据行的 Checkbox 时触发的事件
+   */
   handleSelect: (selection: T[], row: T) => Promise<void>
+
+  /**
+   * @select-all 当用户手动勾选全选 Checkbox 时触发的事件
+   */
   handleSelectAll: (val: T[]) => void
+
+  /**
+   * 右侧删除单个的回调
+   */
   handleDelete: (row: T) => void
+
+  /**
+   * 右侧删除全部的回调
+   */
   handleDeleteAll: () => void
 }
 
