@@ -12,7 +12,7 @@ yarn add element-plus-helper
 
 ## useTableTransfer 表格穿梭
 
-![avatar](./preview.gif)
+<img alt="preview" src="https://cdn.jsdelivr.net/gh/leiyunkang7/vue-virtual-layout/preview-v1.gif" style="width:375px;height:667px;" />
 
 ### 用例:
 
